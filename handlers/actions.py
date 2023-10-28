@@ -1,3 +1,6 @@
+"""
+Обработчик команд
+"""
 from aiogram import types
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
@@ -175,7 +178,7 @@ async def credit_cmd_type(callback: types.CallbackQuery, state: FSMContext):
         credit_result = credit.dif_int()
         await callback.message.answer(f'Вот что у меня получилось:\n'
                                       f'Всего Вы заплатите банку {credit_result[1]} рублей\n'
-                                      f'Среднемесячный платеж составляет {credit_result[0]}'
+                                      f'Среднемесячный платеж составляет {credit_result[0]}\n'
                                       f'Все расчеты носят примерный характер. '
                                       f'Для более точной конвертации обратитесь в банк')
     await state.finish()

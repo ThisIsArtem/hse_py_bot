@@ -1,3 +1,6 @@
+"""
+Используемые клавиатуры
+"""
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 functions = InlineKeyboardMarkup()
 (functions

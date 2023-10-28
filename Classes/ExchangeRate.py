@@ -3,10 +3,22 @@ from bs4 import BeautifulSoup
 
 
 class ExchangeRate:
+    """Класс для информации об официальном курсе валют с сайта ЦБ РФ
+    Атрибуты класса:
+    code - код валюты в соответствии с международным правилом (например, USD, EUR, CNY)
+    """
     def __init__(self, code):
+        """Инициализация класса"""
         self.code = code
 
     def get_info(self):
+        """
+        Парсинг страницы сайта ЦБ РФ с курсом валют на текущую дату. Данные из таблицы сохраняются в список tr_lst.
+        nums - единицы курса
+        value - величина курса за nums единиц валюты
+        :return: exchangerate - величина курса за одну единицу валюты
+        """
+
         url = f'https://cbr.ru/currency_base/daily/'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '

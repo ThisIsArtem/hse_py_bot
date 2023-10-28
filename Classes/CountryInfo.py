@@ -3,10 +3,25 @@ from bs4 import BeautifulSoup
 
 
 class CountryInfo:
+    """ Класс для информации о странах
+        Атрибуты класса:
+        country - код страны в соответствии с международным правилом
+        """
     def __init__(self, country):
         self.country = country
 
     def get_info(self):
+        """
+        Парсинг страницы сайта tradingeconomics.com с информацией о экономических метриках стран.
+        Данные из таблицы сохраняются в список tr_lst.
+        gdp_info_start_index/gdp_info_finish_index - начало и конец необходимой информации о ВВП
+        unemployment_info_start_index/unemployment_info_finish_index -
+                                                            начало и конец необходимой информации о безработице
+        inflation_info_start_index/inflation_finish_start_index - начало и конец необходимой информации об инфляции
+        interest_info_start_index/interest_info_finish_index - начало и конец необходимой информации о ключевой ставке
+        damper - переменная для корректировки соответствующих индексов
+        :return: кортеж вида (ВВП, безработица, инфляция, ключевая ставка)
+        """
         country = self.country
         url = f'https://tradingeconomics.com/{country}/indicators'
         headers = {
