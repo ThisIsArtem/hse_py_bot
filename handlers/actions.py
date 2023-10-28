@@ -53,7 +53,7 @@ async def start_cmd(callback: types.CallbackQuery):
 
 @dp.callback_query_handler(text='/exchangerate')
 async def exchange_cmd(callback: types.CallbackQuery):
-    await callback.message.answer('Курс какой валюты Вас интересует?', reply_markup=exchangerate_menu)
+    await callback.message.answer('Курс какой валюты вас интересует?', reply_markup=exchangerate_menu)
     await ExchangeRateStates.choose_currency.set()
 
 
